@@ -1,0 +1,25 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+*.pyc
+*.pyo
+*.pyd
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv/
+
+# Arquivos de configuração/sensíveis
+.env
+.python-version
+uv.lock
+
+# Outputs e resultados
+output_files/
+*.log
+
+# VSCode
+.vscode/

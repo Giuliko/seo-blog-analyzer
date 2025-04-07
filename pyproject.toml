@@ -1,0 +1,13 @@
+[project]
+name = "xp-blog-scraper"
+version = "0.1.0"
+description = "This code scrape 10 relevant blogs of XP website, give them a SEO score and suggest optimizations."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "crewai>=0.108.0",
+    "crewai-tools>=0.38.1",
+    "datetime>=5.5",
+    "playwright>=1.51.0",
+    "python-dotenv>=1.1.0",
+]
