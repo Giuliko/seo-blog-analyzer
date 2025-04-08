@@ -1,115 +1,75 @@
-# 🧠 XP Blog Scraper + SEO Evaluator
+# 🔍 SEO Blog Analyzer
 
-Este projeto automatiza a busca, extração e análise de artigos do blog da **XP Investimentos**, avaliando seu conteúdo com base em critérios de **SEO** e gerando sugestões de melhorias.
+Este projeto permite que qualquer usuário analise um artigo de blog **com apenas uma URL**, avaliando:
 
----
-
-## 📌 O que este projeto faz?
-
-1. **Busca no Google** os artigos mais recentes do blog da XP.
-2. **Extrai o conteúdo completo** dos artigos com Playwright.
-3. **Avalia a qualidade SEO** de cada artigo usando agentes inteligentes.
-4. **Sugere 3 melhorias práticas** para cada post.
-5. **Exporta os resultados** em um arquivo `.json` com timestamp.
+- ✅ **Conteúdo extraído automaticamente**
+- 📈 **Nota de SEO de 0 a 10 com explicação**
+- 🛠️ **3 sugestões práticas para melhorar o SEO**
+- 🚀 **Métricas técnicas do PageSpeed (Core Web Vitals, Performance, SEO, Acessibilidade e mais)**
 
 ---
 
-## 🚀 Como executar
+## 📸 Interface
 
-### 1. Clone o repositório
+![Preview](output_files/erro_debug.png) <!-- Opcional: use uma imagem real do app -->
 
-git clone https://github.com/seu-usuario/xp_blog_scraper.git
-cd xp_blog_scraper
+---
 
-### 2. Crie o ambiente virtual e instale dependências
-Usando uv:
+## 🚀 Como usar
 
-uv venv .venv
-.venv\Scripts\Activate.ps1   # No Windows
-uv pip install -r requirements.txt
+1. **Clone o repositório:**
 
-Ou com pip tradicional:
+git clone https://github.com/Giuliko/seo-blog-analyzer.git
+cd seo-blog-analyzer
+
+2. **Crie um ambiente virtual (opcional):**
 
 python -m venv .venv
-source .venv/bin/activate      # Linux/macOS
-.\.venv\Scripts\activate       # Windows
+source .venv/bin/activate  # Linux/Mac
+.venv\Scripts\activate     # Windows
+
+3. **Instale as dependências:**
+
 pip install -r requirements.txt
 
-### 3. Crie um arquivo .env com suas chaves:
+4. **Configure o arquivo .env:**
 
-OPENAI_API_KEY=sk-...
-SERPER_API_KEY=...
+OPENAI_API_KEY=sua-chave-da-openai
+GOOGLE_PAGESPEED_API_KEY=sua-chave-do-pagespeed
 
-### 4. Rode o projeto
+5. **Execute a aplicação Streamlit:**
 
-python xp_blog_scraper.py
+streamlit run app.py
 
-🛠️ Tecnologias usadas
-Crew AI – Para orquestrar agentes autônomos
+🧠 Tecnologias utilizadas:
 
-Playwright – Para scraping moderno
+. OpenAI GPT-4o — para análise de SEO e sugestões
+. Playwright — para scraping avançado, mesmo em páginas protegidas
+. PageSpeed API — métricas técnicas de performance
+. Streamlit — interface amigável para o usuário
 
-OpenAI API – Para avaliação e sugestões via LLM
-
-Serper.dev – Para realizar buscas no Google
-
-pandas, dotenv, json, re – Utilitários de dados e ambiente
-
-### 📂 Outputs
-Os resultados são salvos automaticamente na pasta:
-
-output_files/
-  └── avaliacoes_seo_completas_YYYYMMDD_HHMMSS.json
-
-Cada entrada contém:
-
-✅ Título do artigo
-
-🔗 Link
-
-🧠 Nota SEO
-
-📝 Explicação da avaliação
-
-💡 Sugestões de melhoria
-
-### 🧪 Exemplo de retorno
+📁 Estrutura de saída
+- Após a análise, o app gera um arquivo JSON em output_files/ com a seguinte estrutura:
 
 {
-  "titulo_blog": "Como investir em renda fixa com a XP",
-  "link": "https://conteudos.xpi.com.br/renda-fixa/artigo-exemplo",
+  "titulo": "Título do artigo",
+  "subtitulos": ["Sub 1", "Sub 2"],
+  "texto": "Trecho do conteúdo extraído...",
   "nota_seo": 7.8,
-  "explicacao": "O artigo está bem estruturado, mas falta meta description e links internos.",
-  "sugestoes": [
-    "Adicione uma meta description clara com a palavra-chave.",
-    "Inclua links internos para outros artigos relacionados.",
-    "Use mais headings para segmentar o conteúdo."
-  ]
+  "explicacao": "Texto explicando os critérios de avaliação",
+  "sugestoes": ["Sugestão 1", "Sugestão 2", "Sugestão 3"],
+  "page_speed": {
+    "core_web_vitals": {...},
+    "performance": {...},
+    "accessibility": 91,
+    "best_practices": 100,
+    "seo": 92
+  }
 }
 
-### 🤖 Sobre os Agentes
-Este projeto utiliza múltiplos agentes coordenados por uma Crew para:
+📬 Contribuições
+Sinta-se à vontade para abrir issues, contribuir com melhorias ou sugestões!
+Este projeto foi desenvolvido por @Giuliko com ❤️ e muito scraping.
 
-Buscar artigos
-
-Avaliar SEO
-
-Sugerir melhorias
-
-Cada agente possui um objetivo claro e funciona de forma sequencial e especializada.
-
-### 📌 Requisitos mínimos
-Python 3.10+
-
-Conta na OpenAI
-
-Conta na Serper.dev
-
-Chromium instalado (Playwright cuidará disso no primeiro uso)
-
-### 📬 Contribuições
-Pull requests são bem-vindos! Para mudanças maiores, por favor abra uma issue antes.
-
-🧠 Autor
-Criado por Emanoel Almeida — conectando scraping, LLMs e SEO.
-
+🛡️ Licença
+Este projeto está licenciado sob a MIT License.
