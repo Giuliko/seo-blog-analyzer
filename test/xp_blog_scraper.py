@@ -49,7 +49,7 @@ print("Links encontrados:")
 print(lista_links)
 
 # === SCRAPER COM PLAYWRIGHT ===
-def extrair_conteudo_xp_blog(url):
+def extrair_conteudo_xp_blog(url): 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=False, args=["--start-maximized"])
         context = browser.new_context(
